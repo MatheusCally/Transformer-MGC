@@ -1,0 +1,181 @@
+Tamanho da base de dados
+
+gtzan: 1000 tracks de 10 gêneros diferentes
+fma_small.zip: 8,000 tracks of 30s, 8 balanced genres (GTZAN-like) (7.2 GiB)
+fma_medium.zip: 25,000 tracks of 30s, 16 unbalanced genres (22 GiB)
+fma_large.zip: 106,574 tracks of 30s, 161 unbalanced genres (93 GiB)
+fma_full.zip: 106,574 untrimmed tracks, 161 unbalanced genres (879 GiB)
+
+
+Atualmente: N x (Multi-head Attention -> Feed Forward)
+
+
+
+
+testar para cada conjunto, quanto tempo demora e a eficiência para cada Gênero, variando o própio conjunto
+
+
+num_layers = 4
+d_model = 128
+dff = 512
+num_heads = 8
+
+Percentage for genre 0:  0.51
+Percentage for genre 1:  0.99
+Percentage for genre 2:  0.02
+Percentage for genre 3:  0.1
+Percentage for genre 4:  0.42
+Percentage for genre 5:  0.0
+Percentage for genre 6:  0.55
+Percentage for genre 7:  0.0
+Percentage for genre 8:  0.13
+Percentage for genre 9:  0.43
+
+Percentage for genre 0:  0.08
+Percentage for genre 1:  0.85
+Percentage for genre 2:  0.22
+Percentage for genre 3:  0.05
+Percentage for genre 4:  0.56
+Percentage for genre 5:  0.31
+Percentage for genre 6:  0.0
+Percentage for genre 7:  0.0
+Percentage for genre 8:  0.45
+Percentage for genre 9:  0.4
+
+ ====================================
+num_layers = 4
+d_model = 128
+dff = 512
+num_heads = 4
+dropout_rate = 0.1
+
+41%
+
+Orientado a loss
+
+Percentage for genre 0:  0.49
+Percentage for genre 1:  0.74
+Percentage for genre 2:  0.11
+Percentage for genre 3:  0.26
+Percentage for genre 4:  0.21
+Percentage for genre 5:  0.56
+Percentage for genre 6:  0.56
+Percentage for genre 7:  0.49
+Percentage for genre 8:  0.48
+Percentage for genre 9:  0.16
+
+=========================================
+num_layers = 4
+d_model = 128
+dff = 512
+num_heads = 2
+dropout_rate = 0.1
+
+51%
+
+Orientado a loss
+
+Percentage for genre 0:  0.39
+Percentage for genre 1:  0.94
+Percentage for genre 2:  0.22
+Percentage for genre 3:  0.21
+Percentage for genre 4:  0.12
+Percentage for genre 5:  0.59
+Percentage for genre 6:  0.47
+Percentage for genre 7:  0.85
+Percentage for genre 8:  0.4
+Percentage for genre 9:  0.33
+
+============================================
+num_layers = 4
+d_model = 128
+dff = 512
+num_heads = 1
+dropout_rate = 0.1
+
+Orientado a loss
+
+59% 
+
+Percentage for genre 0:  0.37
+Percentage for genre 1:  0.97
+Percentage for genre 2:  0.54
+Percentage for genre 3:  0.61
+Percentage for genre 4:  0.22
+Percentage for genre 5:  0.67
+Percentage for genre 6:  0.55
+Percentage for genre 7:  0.62
+Percentage for genre 8:  0.57
+Percentage for genre 9:  0.44
+
+============================================
+num_layers = 4
+d_model = 128
+dff = 512
+num_heads = 1
+dropout_rate = 0.1
+
+Orientado a loss
+
+61% 
+
+Percentage for genre 0:  0.54
+Percentage for genre 1:  0.87
+Percentage for genre 2:  0.33
+Percentage for genre 3:  0.34
+Percentage for genre 4:  0.84
+Percentage for genre 5:  0.74
+Percentage for genre 6:  0.72
+Percentage for genre 7:  0.65
+Percentage for genre 8:  0.31
+Percentage for genre 9:  0.39
+
+===================================================
+num_layers = 2
+d_model = 128
+dff = 512
+num_heads = 1
+dropout_rate = 0.1
+200EPOCHS
+67 %
+
+Orientado a accuracy
+
+Percentage for genre 0:  0.9
+Percentage for genre 1:  0.88
+Percentage for genre 2:  0.73
+Percentage for genre 3:  0.43
+Percentage for genre 4:  0.79
+Percentage for genre 5:  0.87
+Percentage for genre 6:  0.81
+Percentage for genre 7:  0.73
+Percentage for genre 8:  0.82
+Percentage for genre 9:  0.69
+
+======================================================
+
+num_layers = 2
+d_model = 128
+dff = 512
+num_heads = 1
+dropout_rate = 0.1
+batch_size = 8
+[0,1,4,5,6]
+
+90%
+
+Percentage for genre 0:  0.88
+Percentage for genre 1:  1.0
+Percentage for genre 4:  0.97
+Percentage for genre 5:  0.97
+Percentage for genre 6:  0.88
+
+Epoch 151/200
+57/57 [==============================] - 49s 853ms/step - loss: 0.2441 - accuracy: 0.8923 - val_loss: 0.3886 - val_accuracy: 0.9000
+
+Epoch 00151: val_accuracy improved from 0.88000 to 0.90000, saving model to ./newCheckpoints\tccCheckpoint.h5
+
+=======================================================
+
+G~enero outros
+Por que identifica bem alguns
